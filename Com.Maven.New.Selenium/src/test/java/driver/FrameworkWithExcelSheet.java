@@ -25,7 +25,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class FrameworkWithExcelSheet {
-	
+//	DesiredCapabilities capabilities;
 	DesiredCapabilities capabilities;
 	WebDriver driver;
 	WebElement element;	
