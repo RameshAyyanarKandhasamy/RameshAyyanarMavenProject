@@ -55,7 +55,7 @@ public class FrameworkWithExcelSheet {
 @BeforeMethod
 	
 	public void Beforemethod(){
-//	System.setProperty("webdriver.chrome.driver","D:\\workspace\\Com.Maven.New.Selenium\\driver\\chromedriver.exe");
+//	System.setProperty("webdriver.chrome.driver","D:\\jitmaven\\Com.Maven.New.Selenium\\driver\\chromedriver.exe");
 //	driver = new ChromeDriver();
 //	driver.manage().window().maximize();
 	System.out.println("Before method");
@@ -85,7 +85,7 @@ public void AfterMethod() throws IOException{
 @AfterTest
 
 public void AfterTest() throws IOException{
-	out=new FileOutputStream("D:\\workspace\\Com.Maven.New.Selenium\\output\\Ouputsheet_"+dateFormat.format(date)+".xlsx");
+	out=new FileOutputStream("D:\\jitmaven\\Com.Maven.New.Selenium\\output\\Ouputsheet_"+dateFormat.format(date)+".xlsx");
     InputWorkbook.write(out);
     out.close(); 
 }
@@ -93,8 +93,7 @@ public void AfterTest() throws IOException{
 @DataProvider(name="datapro")
 public Object[][] getData() throws IOException
 {
-	
-	file=new File("D:\\workspace\\Com.Maven.New.Selenium\\input\\inputsheet.xlsx");
+	file=new File("D:\\jitmaven\\Com.Maven.New.Selenium\\input\\inputsheet.xlsx");
     //Create an object of FileInputStream class to read excel file
     inputStream = new FileInputStream(file);
    //Create an object for workbook
@@ -103,7 +102,6 @@ public Object[][] getData() throws IOException
     InputSheet = InputWorkbook.getSheetAt(0);
     //Find number of rows in excel file
     int rowCount = InputSheet.getLastRowNum();
-    
   //Rows - Number of times your test has to be repeated.
   //Columns - Number of parameters in test data.
     Object[][] data=new Object[rowCount][2];
@@ -113,7 +111,6 @@ public Object[][] getData() throws IOException
        	// 1st row
     	data[row-1][0]=rows.getCell(0).getStringCellValue();
     	data[row-1][1]=rows.getCell(1).getStringCellValue();
-
     }	
 return data;
 }
